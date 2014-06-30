@@ -1,38 +1,40 @@
+使用 Asciidoc，測試整合 Hipchat
+
 === HTMLBook
 
-Let's write books in HTML! HTMLBook is an open, XHTML5-based standard for the authoring and production of both print and digital books. HTMLBook is built on the following premises:
+HTMLBook 是一個開放專案，使用 XHTML5 為基礎，目的是用來撰寫與生產書籍，包含紙本與電子書。它根據下面的前提而開發：
 
-* Books are timeless. The basic "book" structure has persisted for hundreds of years and will continue to persist for our lifetimes, be it in digital or print form. 
-* HTML is the markup language of the world for the foreseeable future.
-* Single-source document processing will remain valuable for the foreseeable future.
+* 書本質上沒有時間性（不包含流通與能見度）。書的基本架構，數百年來均穩定不變，也將持續下去，不管以紙本或數位格式呈現。 
+* 在可見的未來，HTML 都會是世界通用的標記語言格式。
+* 在可見的未來，單一文件來源的生產流程，價值日益提高。
 
-As such, HTMLBook can be characterized in the following ways:
+整體來看，HTMLBook的特性如下：
 
-* HTMLBook is a subset of XHTML5. All HTMLBook is XHTML5, but not all XHTML5 is HTMLBook.
-* HTMLBook contains no additional elements or attributes outside of the XHTML5 specification.
-* HTMLBook is semantically tailored to the structure of a book, including more complex content used in technical and reference documents.
-* HTMLBook is defined with and can be validated against an XML schema.
-* HTMLBook stylesheets are written in CSS.
+* HTMLBook 是 XHTML5 的一個子集。所有的 HTMLBook 都是 XHTML5，但並非所有的 XHTML5 都是 HTMLBook。
+* HTMLBook 所有的元件與屬性，都在 XHTML5 標準規範之內。
+* HTMLBook 以語義化的標準打造一本書的架構，包含使用於資訊科技類與參考教材這類書籍的複雜內容。
+* HTMLBook 能以 XML schema 定義並驗證。
+* HTMLBook 樣式表以 CSS 撰寫。
 
-=== Getting Started with HTMLBook
+=== 起手式
 
-Read the Working Draft of the HTMLBook Specification here:
+在這裏你可以看到 HTMLBook 的完整規範定義：
 
-http://oreillymedia.github.io/HTMLBook/
+https://github.com/oreillymedia/HTMLBook/blob/master/specification.asciidoc
 
-Get the HTMLBook schema here:
+在這裡則能取得 HTMLBook schema：
 
 https://github.com/oreillymedia/HTMLBook/tree/master/schema
 
-The main HTMLBook Schema file is +htmlbook.xsd+, which imports Schemas (via W3C) for MathML and SVG validation.
+主要的 HTMLBook Schema 檔案是 +htmlbook.xsd+，它同時匯入了 MathML 與 SVG 驗證準則。
 
-You can validate HTML documents against +htmlbook.xsd+ on the command line using +xmllint+:
+你可以使用終端機指令 +xmllint+，經由參照 +htmlbook.xsd+ 這個檔案來驗證你的 HTMLBook：
 
 ----
 $ xmllint --noout --schema htmlbook.xsd <your_html_filename>.html
 ----
 
-Alternatively, to validate in a GUI XML editor like oXygen, add a +xsi:schemaLocation+ declaration to the root +<html>+ element as follows:
+若想使用類似 oXygen 這類視覺化工具進行驗證，需要將 +xsi:schemaLocation+ 宣告加入 +<html>+ 根元素，像下面這樣：
 
 ----
 <html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -40,12 +42,10 @@ Alternatively, to validate in a GUI XML editor like oXygen, add a +xsi:schemaLoc
  xmlns="http://www.w3.org/1999/xhtml">
 ----
 
-=== Notes on HTMLBook
+=== 注意事項
 
-* The HTMLBook specification is currently in Working Draft status, and will continue to be developed and revised for the foreseeable future.
+* HTMLBook 是由 O'Reilly Media 開發，若有任何建議，可前往 https://github.com/oreillymedia/HTMLBook 新增議題討論，包含臭蟲提報與功能建議。
 
-* If you have any bugs or feature requests for HTMLBook, please submit them via the Issues tab in GitHub.
+* HTMLBook 的規格還在工作草稿階段，持續進行修改中。
 
-* In the coming months, we will be adding additional tools to the HTMLBook project for authoring and producing books with HTMLBook: CSS stylesheets, scripts for generating EPUB/Mobi, etc.
-
-* If you would like to contribute to the HTMLBook project, send us a pull request!
+* 未來幾個月，將會增加一些額外的工具，便利編輯與製作 HTMLBook 的流程，包含：CSS 樣式表，轉製 EPUB/Mobi 流通格式的程序等等。
